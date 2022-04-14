@@ -82,6 +82,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngrx-sandbox"
+    }
+  },
+  "defaultProject": "ngrx-sandbox",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
