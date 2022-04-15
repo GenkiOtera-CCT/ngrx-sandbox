@@ -22,6 +22,7 @@ ngrx/store-devtools: 8.6.0
 ## 推奨ツール
 ・Redux DevTools（storeの中身の確認など）  
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja  
+[使い方](https://harkerhack.com/react-redux-devtools/)  
 
 ## 参考になった（した）サイト
 0.【公式】Get Started  
