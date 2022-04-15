@@ -37,7 +37,7 @@ export class HeroComponent implements OnInit {
 
     this.heroService.delete(hero)
       .subscribe(
-        () => console.log('Deleted entity'),
+        () => console.log('Deleted Entity'),
         err => console.error(`Failed to delete the entity: ${err}`)
       );
   }
@@ -55,8 +55,16 @@ export class HeroComponent implements OnInit {
   addHero(hero: Hero) {
     this.heroService.add(hero)
       .subscribe(
-        () => console.log('エンティティを追加しました'),
-        err => console.error(`エンティティの追加に失敗しました: ${err}`),
+        () => console.log('Added Entity'),
+        err => console.error(`Failed to add the entity: ${err}`),
+        () => this.endEdit());
+  }
+
+  updateHero(hero: Hero) {
+    this.heroService.update(hero)
+      .subscribe(
+        () => console.log('Updated Entity'),
+        err => console.error(`Failed to update the entity: ${err}`),
         () => this.endEdit());
   }
 }
