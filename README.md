@@ -10,10 +10,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 node: v12.22.12  
 npm: 6.14.5  
 Angular: 8.2.14  
+angular-in-memory-web-api: 0.8.0  
 ngrx: 8.6.0  
+ngrx/data: 8.6.1  
+ngrx/effects: 8.6.0  
+ngrx/entity: 8.6.1  
 ngrx/schematics: 13.1.0  
 ngrx/store-devtools: 8.6.0  
-※Angularとngrx,devtoolsのメジャーバージョンは合わせるように  
+※Angularとngrx系のメジャーバージョンは合わせるように  
 
 ## 推奨ツール
 ・Redux DevTools（storeの中身の確認など）  
