@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EntityCollectionService, EntityServices } from '@ngrx/data';
+import { Observable } from 'rxjs';
 import { Hero } from 'src/app/models/hero';
 
 @Component({
@@ -7,13 +8,23 @@ import { Hero } from 'src/app/models/hero';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
   private heroService: EntityCollectionService<Hero>;
+  heroes$: Observable<Hero[]>;
 
   constructor(
     entityService: EntityServices
     ) {
       this.heroService = entityService.getEntityCollectionService<Hero>('Hero');
+      this.heroes$ = this.heroService.entities$;
+    }
+
+    ngOnInit(){
+      this.heroService.getAll()
+        .subscribe(
+          () => console.log('Get Entity'),
+          err => console.error(`Failed to get the entity: ${err}`)
+        );
     }
 
 }

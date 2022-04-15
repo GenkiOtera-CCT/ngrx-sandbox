@@ -1,1 +1,10 @@
-<p>hero works!</p>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    <tr *ngFor="let hero of heroes$ | async">
+        <td>{{hero.id}}</td>
+        <td>{{hero.name}}</td>
+    </tr>
+</table>
