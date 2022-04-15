@@ -2,9 +2,11 @@
     <tr>
         <th>id</th>
         <th>name</th>
+        <th>delete</th>
     </tr>
     <tr *ngFor="let hero of heroes$ | async">
         <td>{{hero.id}}</td>
         <td>{{hero.name}}</td>
+        <td><button (click)="deleteHero(hero.id)">DELETE</button></td>
     </tr>
 </table>

@@ -14,17 +14,27 @@ export class HeroComponent implements OnInit {
 
   constructor(
     entityService: EntityServices
-    ) {
-      this.heroService = entityService.getEntityCollectionService<Hero>('Hero');
-      this.heroes$ = this.heroService.entities$;
-    }
+  ) {
+    this.heroService = entityService.getEntityCollectionService<Hero>('Hero');
+    this.heroes$ = this.heroService.entities$;
+  }
 
-    ngOnInit(){
-      this.heroService.getAll()
-        .subscribe(
-          () => console.log('Get Entity'),
-          err => console.error(`Failed to get the entity: ${err}`)
-        );
-    }
+  ngOnInit(){
+    this.heroService.getAll()
+      .subscribe(
+        () => console.log('Get Entity'),
+        err => console.error(`Failed to get the entity: ${err}`)
+      );
+  }
+
+  deleteHero(id: number){
+    const hero = <Hero>{ id: id };
+
+    this.heroService.delete(hero)
+      .subscribe(
+        () => console.log('Deleted entity'),
+        err => console.error(`Failed to delete the entity: ${err}`)
+      );
+  }
 
 }
