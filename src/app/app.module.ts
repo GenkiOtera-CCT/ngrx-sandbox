@@ -29,8 +29,8 @@ import { MockWebApi } from './mock-web-api';
     InMemoryWebApiModule.forRoot(MockWebApi),
     StoreModule.forRoot({ count: counterReducer }),
     StoreDevtoolsModule.instrument(),
-    EntityDataModule.forRoot(entityConfig),
     EffectsModule.forRoot([AppEffects]),
+    EntityDataModule.forRoot(entityConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
