@@ -1,3 +1,18 @@
+<div class="edit-container">
+    <ng-container *ngIf="isEditing; else newButton">
+        <form #myForm="ngForm">
+            <input [(ngModel)]="hero.name" name="heroName" required="heroName" />
+            <button (click)="addHero(hero)"
+                    [disabled]="myForm.invalid || (loading$ | async)">ADD</button>
+            <button (click)="endEdit()"
+                    [disabled]="loading$ | async">CANCEL</button>
+        </form>
+    </ng-container>
+    <ng-template #newButton>
+        <button (click)="beginEdit()">ADD</button>
+    </ng-template>
+</div>
+
 <table>
     <tr>
         <th>id</th>
@@ -7,6 +22,6 @@
     <tr *ngFor="let hero of heroes$ | async">
         <td>{{hero.id}}</td>
         <td>{{hero.name}}</td>
-        <td><button (click)="deleteHero(hero.id)">DELETE</button></td>
+        <td><button [disabled]="isEditing" (click)="deleteHero(hero.id)">DELETE</button></td>
     </tr>
 </table>

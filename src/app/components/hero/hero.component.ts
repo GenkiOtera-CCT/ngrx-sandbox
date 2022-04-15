@@ -10,13 +10,18 @@ import { Hero } from 'src/app/models/hero';
 })
 export class HeroComponent implements OnInit {
   private heroService: EntityCollectionService<Hero>;
+  loading$: Observable<boolean>;
   heroes$: Observable<Hero[]>;
+
+  isEditing = false;
+  hero: Hero;
 
   constructor(
     entityService: EntityServices
   ) {
     this.heroService = entityService.getEntityCollectionService<Hero>('Hero');
     this.heroes$ = this.heroService.entities$;
+    this.loading$ = this.heroService.loading$;
   }
 
   ngOnInit(){
@@ -37,4 +42,21 @@ export class HeroComponent implements OnInit {
       );
   }
 
+  beginEdit(id?: number, name?: string) {
+    this.isEditing = true;
+    this.hero = <Hero>{ id, name };
+  }
+
+  endEdit() {
+    this.isEditing = false;
+    this.hero = <Hero>{}
+  }
+
+  addHero(hero: Hero) {
+    this.heroService.add(hero)
+      .subscribe(
+        () => console.log('エンティティを追加しました'),
+        err => console.error(`エンティティの追加に失敗しました: ${err}`),
+        () => this.endEdit());
+  }
 }
