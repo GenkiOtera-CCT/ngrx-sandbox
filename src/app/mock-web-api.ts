@@ -1,4 +1,4 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api'
+import { InMemoryDbService, RequestInfoUtilities, ParsedRequestUrl } from 'angular-in-memory-web-api'
 import { entityConfig } from './entity-metadata';
 
 export class MockWebApi implements InMemoryDbService {
@@ -25,6 +25,10 @@ export class MockWebApi implements InMemoryDbService {
         return url.replace(regexp, `$1${apiEntityName}$3`)
           .replace(/\/\?/g, '?')
           .replace(/\/$/g, '');
+    }
+
+    parseRequestUrl(url: string, utils: RequestInfoUtilities): ParsedRequestUrl{
+        return utils.parseRequestUrl(this.urlTranslate(url));
     }
 
     // Private Methods
