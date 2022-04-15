@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
@@ -13,6 +14,7 @@ import { entityConfig } from './entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { HeroComponent } from './components/hero/hero.component';
+import { MockWebApi } from './mock-web-api';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HeroComponent } from './components/hero/hero.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    InMemoryWebApiModule.forRoot(MockWebApi),
     StoreModule.forRoot({ count: counterReducer }),
     StoreDevtoolsModule.instrument(),
     EntityDataModule.forRoot(entityConfig),
