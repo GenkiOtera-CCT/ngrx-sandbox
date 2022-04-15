@@ -34,3 +34,7 @@ https://tech.windii.jp/frontend/angular/ngrx-introduction
 3.Schematics で始める @ngrx/store  
 https://tercel-s.hatenablog.jp/entry/2018/08/10/214951  
 ※schematicsの導入方法が記載  
+
+4.はじめからはじめる @ngrx/data  
+※NgRx/dataについてが記載  
+https://tercel-tech.hatenablog.com/entry/2020/02/11/223925  
