@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
         <a routerLink="/">Home</a>
       </nav>
       <nav class='item'>
-        <a routerLink="/my-counter">my-counter</a>
+        <a routerLink="/my-counter">my-counter(ngrx/store)</a>
+      </nav>
+      <nav class='item'>
+        <a routerLink="/hero">hero(ngrx/data)</a>
       </nav>
     </div>
     <router-outlet></router-outlet>
